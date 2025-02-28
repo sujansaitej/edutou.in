@@ -63,16 +63,15 @@ const NavItems = styled.ul`
     justify-content: center;
     gap: 32px;
 
-    @media screen and (max-width: 768px) {  
+    @media screen and (max-width: 768px) {
         overflow-x: auto;
         white-space: nowrap;
         display: flex;
         padding: 10px;
     }
-`;  
+`;
 
-
-const NavLink = styled.a`
+const NavLink = styled(LinkR)`
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
     cursor: pointer;
@@ -80,7 +79,7 @@ const NavLink = styled.a`
     transition: all 0.2s ease-in-out;
     &:hover {
         color: ${({ theme }) => theme.primary};
-    }   
+    }
 `;
 
 const ButtonContainer = styled.div`
@@ -95,7 +94,7 @@ const ButtonContainer = styled.div`
     }
 `;
 
-const GithubButton = styled.a`
+const FollowButton = styled.a` /* Changed component name to FollowButton */
     background-color: transparent;
     color: ${({ theme }) => theme.primary};
     border: 1.8px solid ${({ theme }) => theme.button};
@@ -105,7 +104,7 @@ const GithubButton = styled.a`
     text-decoration: none;
     align-items: center;
     padding: 0px 20px;
-    font-size: 1rem, 
+    font-size: 1rem,
     font-weight: 500;
     cursor: pointer;
     height: 70%;
@@ -144,7 +143,7 @@ export const MobileMenu = styled.div`
     z-index: ${({ open }) => (open ? '1000' : '-1000')};
 `
 
-export const MobileLink = styled.a`
+export const MobileLink = styled(LinkR)`
     color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
     cursor: pointer;
@@ -173,6 +172,8 @@ export const MobileNavLogo = styled(LinkR)`
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const instagramURL = "https://www.instagram.com/diffuseai"; // Replace with your actual Instagram URL
+
     return <Nav>
         <NavContainer>
             <NavLogo to="/">
@@ -186,32 +187,31 @@ const Navbar = () => {
                 }} />
             </MobileIcon>
             <NavItems>
-                <NavLink href="#about">About</NavLink>
-                <NavLink href='#skills'>SkillCOURSE</NavLink>
-                <NavLink href='#education'>Education</NavLink>
-                <NavLink href='#contact'>Contact</NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to='/skills'>Course</NavLink>
+                <NavLink to='/projects'>Projects</NavLink>
+                <NavLink to='/contact'>Contact</NavLink>
             </NavItems>
             <ButtonContainer>
-                <GithubButton href={Bio.github} target='_blank'>LOGIN</GithubButton>
+                <FollowButton href={instagramURL} target='_blank'>Follow</FollowButton> {/* Changed to FollowButton and updated text and href */}
             </ButtonContainer>
         </NavContainer>
         {open && <MobileMenu open={open}>
-            <MobileLink href="#about" onClick={() => {
+            <MobileLink to="/" onClick={() => {
                 setOpen(!open)
-                
-            }}>About</MobileLink>
-            <MobileLink href='#SkillCOURSE' onClick={() => {
+            }}>Home</MobileLink>
+            <MobileLink to='/skills' onClick={() => {
+                setOpen(!open)
+            }}>Skills</MobileLink>
+            <MobileLink to='/projects' onClick={() => {
                 setOpen(!open)
             }}>Projects</MobileLink>
-            <MobileLink href='#education' onClick={() => {
-                setOpen(!open)
-            }}>Education</MobileLink>
-            <MobileLink href='#contact' onClick={() => {
+            <MobileLink to='/contact' onClick={() => {
                 setOpen(!open)
             }}>Contact</MobileLink>
-            <GithubButton style={{ padding: '10px 16px',width: 'max-content', fontWeight: "bold"}} href={Bio.github} target="_blank"> LOGIN</GithubButton>
+            <FollowButton style={{ padding: '10px 16px',width: 'max-content', fontWeight: "bold"}} href={instagramURL} target="_blank"> Follow</FollowButton> {/* Changed to FollowButton and updated text and href */}
         </MobileMenu>}
     </Nav>
 }
 
-export default Navbar
+export default Navbar;

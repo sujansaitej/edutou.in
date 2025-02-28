@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GithubIcon from '@mui/icons-material/Github';
 import { Bio } from '../../data/constants';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const FooterContainer = styled.div`
     width: 100%;
@@ -46,7 +47,7 @@ const Nav = styled.nav`
     }
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)` // Changed to Link from react-router-dom
     color: ${({ theme }) => theme.text_primary};
     text-decoration: none;
     font-size: 1.2rem;
@@ -88,10 +89,10 @@ function Footer() {
             <FooterWrapper>
                 <Logo>Diffuse AI</Logo>
                 <Nav>
-                    <NavLink href="#about">About</NavLink>
-                    <NavLink href="#skills">SkillCOURSE</NavLink>
-                    <NavLink href="#education">Education</NavLink>
-                    <NavLink href="#contact">Contact</NavLink>
+                    <NavLink to="/">Home</NavLink> 
+                    <NavLink to="/skills">Course</NavLink> 
+                    <NavLink to="/projects">Projects</NavLink> 
+                    <NavLink to="/contact">Contact</NavLink> 
                 </Nav>
                 <SocialMediaIcons>
                     <SocialMediaIcon href={Bio.github} target="display"><GithubIcon /></SocialMediaIcon>

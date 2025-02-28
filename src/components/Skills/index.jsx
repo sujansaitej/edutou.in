@@ -54,6 +54,7 @@ const SkillsContainer = styled.div`
     margin-top: 30px;
     gap: 30px;
     justify-content: center;
+    margin-bottom: 50px;
 `
 
 const Skill = styled.div`
