@@ -12,6 +12,7 @@ export const Container = styled.div`
     z-index: 1;
     align-items: center;
     clip-path: polygon(0 0, 100% 0, 100% 100%,100% 98%, 0 100%);
+    padding: 20px 0; /* Added padding to the top and bottom of the container */
 `;
 
 export const Wrapper = styled.div`
@@ -22,33 +23,55 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 1350px;
-    padding: 10px 0px 100px 0;
-    gap: 12px;
+    padding: 30px 20px 120px 20px; /* Adjusted padding for better spacing */
+    gap: 20px; /* Increased gap for better spacing */
     @media (max-width: 960px) {
         flex-direction: column;
+        padding: 20px; /* Adjusted padding for medium screens */
+        padding-bottom: 100px; /* Keep bottom padding consistent */
     }
 `;
 
 export const Title = styled.div`
-    font-size: 42px;
+    font-size: 48px; /* Increased font size for title */
     text-align: center;
-    font-weight: 600;
-    margin-top: 20px;
+    font-weight: 700; /* Increased font weight for title */
+    margin-top: 30px; /* Increased margin top for title */
     color: ${({ theme }) => theme.text_primary};
+    @media (max-width: 960px) {
+        font-size: 42px; /* Adjusted font size for medium screens */
+        margin-top: 20px; /* Adjusted margin top for medium screens */
+    }
     @media (max-width: 768px) {
-        margin-top: 12px;
-        font-size: 32px;
+        font-size: 36px; /* Adjusted font size for tablet screens */
+        margin-top: 15px; /* Adjusted margin top for tablet screens */
+    }
+    @media (max-width: 640px) {
+        margin-top: 10px; /* Adjusted margin top for mobile screens */
+        font-size: 32px; /* Adjusted font size for mobile screens */
     }
 `;
 
 export const Desc = styled.div`
-    font-size: 18px;
+    font-size: 20px; /* Increased font size for description */
     text-align: center;
-    max-width: 600px;
+    max-width: 700px; /* Increased max-width for description */
     color: ${({ theme }) => theme.text_secondary};
+    margin-top: 20px; /* Increased margin top for description */
+    line-height: 1.6; /* Added line height for better readability */
+    @media (max-width: 960px) {
+        font-size: 19px; /* Adjusted font size for medium screens */
+        margin-top: 15px; /* Adjusted margin top for medium screens */
+        max-width: 600px; /* Adjusted max-width for medium screens */
+    }
     @media (max-width: 768px) {
         margin-top: 12px;
-        font-size: 16px;
+        font-size: 18px; /* Adjusted font size for tablet screens */
+    }
+    @media (max-width: 640px) {
+        margin-top: 10px;
+        font-size: 16px; /* Adjusted font size for mobile screens */
+        max-width: 90%; /* Make description width responsive */
     }
 `;
 
@@ -56,17 +79,28 @@ export const ToggleButtonGroup = styled.div`
     display: flex;
     border: 1.5px solid ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.primary};
-    font-size: 16px;
+    font-size: 18px; /* Increased font size for toggle buttons */
     border-radius: 12px;
     font-weight: 500;
-    margin: 22px 0px;
+    margin: 30px 0px; /* Increased margin for toggle button group */
+    @media (max-width: 960px) {
+        font-size: 17px; /* Adjusted font size for medium screens */
+        margin: 25px 0px; /* Adjusted margin for medium screens */
+    }
     @media (max-width: 768px) {
-        font-size: 12px;
+        font-size: 16px; /* Adjusted font size for tablet screens */
+        margin: 20px 0px; /* Adjusted margin for tablet screens */
+    }
+    @media (max-width: 640px) {
+        font-size: 14px; /* Adjusted font size for mobile screens */
+        margin: 15px 0px; /* Adjusted margin for mobile screens */
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        justify-content: center; /* Center buttons on smaller screens */
     }
 `
 
 export const ToggleButton = styled.div`
-    padding: 8px 18px;
+    padding: 10px 20px; /* Increased padding for toggle buttons */
     border-radius: 6px;
     cursor: pointer;
     ${({ active, theme }) =>
@@ -78,7 +112,10 @@ export const ToggleButton = styled.div`
         background: ${({ theme }) => theme.primary + 8};
     }
     @media (max-width: 768px) {
-        padding: 6px 8px;
+        padding: 8px 15px; /* Adjusted padding for tablet screens */
+    }
+    @media (max-width: 640px) {
+        padding: 8px 12px; /* Adjusted padding for mobile screens */
         border-radius: 4px;
     }
 `
@@ -89,21 +126,24 @@ export const Divider = styled.div`
 
 
 export const CardContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-gap: 32px;
-    // grid-auto-rows: minmax(100px, auto);
-    // @media (max-width: 960px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    // @media (max-width: 640px) {
-    //     grid-template-columns: repeat(1, 1fr);
-    // }
+    display: grid; /* Changed to grid layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    grid-gap: 35px; /* Increased grid gap for better spacing */
+    @media (max-width: 1280px) { /* Adjusted media query breakpoint for larger tablets/smaller desktops */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        grid-gap: 30px; /* Adjusted grid gap for medium screens */
+    }
+    @media (max-width: 960px) {
+        grid-template-columns: repeat(2, 1fr); /* Still 2 columns on smaller tablets */
+        grid-gap: 25px; /* Adjusted grid gap for smaller tablets */
+    }
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr); /* 1 column on mobile screens */
+        grid-gap: 20px; /* Adjusted grid gap for mobile screens */
+    }
+    @media (max-width: 640px) {
+        grid-gap: 15px; /* Further reduced grid gap for smaller mobile screens */
+    }
 `;
 
 const Projects = ({openModal,setOpenModal}) => {
@@ -117,7 +157,7 @@ const Projects = ({openModal,setOpenModal}) => {
                 </Desc>
                 <ToggleButtonGroup >
                     {toggle === 'all' ?
-                        <ToggleButton value="all" onClick={() => setToggle('all')}>All</ToggleButton>
+                        <ToggleButton active="true" value="all" onClick={() => setToggle('all')}>All</ToggleButton>
                         :
                         <ToggleButton value="all" onClick={() => setToggle('all')}>All</ToggleButton>
                     }

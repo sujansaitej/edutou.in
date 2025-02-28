@@ -1,41 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap'); /* Keeping both Poppins and Montserrat imports */
 
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    
+    font-family: 'Montserrat', sans-serif; /*  Prioritizing Montserrat as the main font-family */
 }
 
 html{
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body{
-  margin: 0px !important;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0px !important;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* Ensuring body also uses Montserrat */
 }
 
-/* width */
+/* Scrollbar Styles - Slightly adjusted handle color */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 5px; /* Slightly wider scrollbar for better visibility */
     height: 80px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background:#222A35;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #575C66;
-    border-radius: 6px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #626970;
-  }
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #686D76; /* Slightly lighter and more neutral gray for handle */
+    border-radius: 8px; /* Slightly more rounded scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #707880; /* Slightly lighter hover color */
+}

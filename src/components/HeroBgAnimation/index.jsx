@@ -1,7 +1,9 @@
+// HeroBgAnimation.js
 import React from 'react';
-import { Div } from './HeroBgAnimationStyle';
+import { Div } from './HeroBgAnimationStyle'; // Import the styled Div
+
 const HeroBgAnimation = () => (
-    <Div>
+    <Div> {/* Use the styled Div component here */}
         <svg
             className="BgAnimation__svg"
             viewBox="0 0 602 602"
